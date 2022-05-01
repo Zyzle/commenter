@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-commenter',
   templateUrl: './commenter.component.html',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommenterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private client: HttpClient) { }
 
   ngOnInit(): void {
   }

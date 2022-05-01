@@ -11,5 +11,5 @@ const template: Story = (args: any) => ({
 	props: args
 });
 
-export const Main = template.bind({})
-Main.args = {};
+export const Commenter = template.bind({});
+Commenter.args = {};
