@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
-import { HttpClient } from '@angular/common/http';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-commenter',
@@ -9,7 +7,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CommenterComponent implements OnInit {
 
-  constructor(private client: HttpClient) { }
+  @Input() clientId!: string;
+  @Input() lynxApp!: string;
+  @Input() issueNumber!: number;
+  @Input() ghRepo!: string;
+
+
+  constructor() { }
 
   ngOnInit(): void {
   }

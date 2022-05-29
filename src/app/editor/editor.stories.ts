@@ -1,10 +1,17 @@
-import { Meta, Story } from '@storybook/angular';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
 import { EditorComponent } from './editor.component';
 
 export default{
 	title: 'Editor',
-	component: EditorComponent
+	component: EditorComponent,
+	decorators: [
+		moduleMetadata({
+			imports: [CommonModule, HttpClientModule],
+		})
+	]
 } as Meta;
 
 const template: Story = (args: any) => ({

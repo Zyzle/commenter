@@ -1,6 +1,19 @@
-<div>
-	<input type="text" placeholder="Title"/>
-</div>
-<div>
-	<textarea rows="5"></textarea>
+<div class="flex flex-col border rounded-lg shadow-lg overflow-auto mb-8">
+  <div class="flex flex-row px-4 pt-2 border-b">
+    <button (click)="write()" [ngClass]="previewing ? inactiveTab : activeTab"  class="bg-white py-2 px-4 font-semibold inline-block">Write</button>
+    <button (click)="preview()" [ngClass]="previewing ? activeTab : inactiveTab" class="bg-white py-2 px-4 font-semibold inline-block">Preview</button>
+  </div>
+  <textarea
+    rows="5"
+    class="border-none text-gray-500"
+    placeholder="Comment..."
+  ></textarea>
+  <div class="flex flex-row-reverse gap-4 bg-white px-4 py-2">
+    <button
+      class="rounded py-1 px-3 bg-blue-500 text-white"
+      [ngClass]="{'opacity-50 cursor-not-allowed': false}"
+    >
+      Post
+    </button>
+  </div>
 </div>

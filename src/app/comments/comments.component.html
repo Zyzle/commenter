@@ -1,0 +1,8 @@
+<div>
+<app-comment *ngFor="let comment of comments | async" 
+  [avatar]="comment.avatar"
+  [commentDate]="comment.commentDate"
+  [content]="comment.comment"
+  [userName]="comment.userName">
+</app-comment>
+</div>

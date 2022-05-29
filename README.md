@@ -1,5 +1,7 @@
 # Commenter
 
+Commenter is a webcomponents based comment system that allows you to use GitHub's issues as your comments backend. This project works in conjunction with [lynx.rs](https://github.com/Zyzle/lynx.rs) to authenticate with Github's oauth.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
 
 ## Development server
