@@ -10,7 +10,8 @@
     "test": "ng test",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "storybook": "npm run docs:json && start-storybook -p 6006",
-    "build-storybook": "npm run docs:json && build-storybook"
+    "build-storybook": "npm run docs:json && build-storybook",
+    "generate": "graphql-codegen"
   },
   "private": true,
   "dependencies": {
@@ -23,12 +24,14 @@
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
+    "@apollo/client": "^3.0.0",
     "apollo-angular": "^3.0.1",
+    "dompurify": "^2.3.8",
+    "graphql": "^16",
+    "marked": "^4.0.16",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4",
-    "@apollo/client": "^3.0.0",
-    "graphql": "^16"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.3.3",
@@ -36,6 +39,10 @@
     "@angular/compiler-cli": "~13.3.0",
     "@babel/core": "^7.17.9",
     "@compodoc/compodoc": "^1.1.19",
+    "@graphql-codegen/cli": "^2.6.2",
+    "@graphql-codegen/typescript": "^2.4.11",
+    "@graphql-codegen/typescript-apollo-angular": "^3.4.10",
+    "@graphql-codegen/typescript-operations": "^2.4.0",
     "@storybook/addon-actions": "^6.5.5",
     "@storybook/addon-essentials": "^6.5.5",
     "@storybook/addon-interactions": "^6.5.5",
@@ -46,6 +53,7 @@
     "@storybook/testing-library": "^0.0.11",
     "@tailwindcss/forms": "^0.5.0",
     "@types/jasmine": "~3.10.0",
+    "@types/marked": "^4.0.3",
     "@types/node": "^12.11.1",
     "autoprefixer": "^10.4.5",
     "babel-loader": "^8.2.5",

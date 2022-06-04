@@ -30,4 +30,8 @@ const template: Story = (args: any) => ({
 });
 
 export const Commenter = template.bind({});
-Commenter.args = {};
+Commenter.args = {
+	issueNumber: 7,
+	ghRepo: 'zyzle.github.io',
+	owner: 'Zyzle',
+};

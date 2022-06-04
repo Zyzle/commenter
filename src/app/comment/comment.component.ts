@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-comment',
@@ -7,10 +7,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CommentComponent implements OnInit {
 
-  @Input() avatar!: string;
-  @Input() userName!: string;
-  @Input() commentDate!: Date;
-  @Input() content!: string;
+  @Input() avatar?: string;
+  @Input() userName?: string;
+  @Input() commentDate?: Date;
+  @Input() content?: string;
 
   constructor() {}
 

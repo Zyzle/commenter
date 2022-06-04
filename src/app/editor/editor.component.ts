@@ -1,27 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+
+import { marked } from 'marked';
 
 @Component({
   selector: 'app-editor',
   templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.scss']
+  styleUrls: ['./editor.component.scss'],
 })
 export class EditorComponent implements OnInit {
 
   public previewing = false;
-
-  public activeTab = [
-    '-mb-px',
-    'border-l',
-    'border-t',
-    'border-r',
-    'rounded-t',
-    'text-blue-700',
-  ]
-
-  public inactiveTab = [
-    'text-blue-500', 
-    'hover:text-blue-800', 
-  ]
+  public comment = '';
 
   constructor() { 
   }
@@ -35,6 +24,24 @@ export class EditorComponent implements OnInit {
 
   preview() {
     this.previewing = true;
+  }
+
+  getTabCss(isActive: boolean) {
+    return isActive ? [
+      '-mb-px',
+      'border-l',
+      'border-t',
+      'border-r',
+      'rounded-t',
+      'text-blue-700',
+    ] : [
+      'text-blue-500', 
+      'hover:text-blue-800', 
+    ];
+  }
+
+  markdownPreview() {
+    return marked.parse(this.comment);
   }
 
 }

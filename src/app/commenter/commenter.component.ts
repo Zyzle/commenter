@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-commenter',
   templateUrl: './commenter.component.html',
-  styleUrls: ['./commenter.component.scss']
+  styleUrls: ['./commenter.component.scss'],
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class CommenterComponent implements OnInit {
 
@@ -11,6 +12,7 @@ export class CommenterComponent implements OnInit {
   @Input() lynxApp!: string;
   @Input() issueNumber!: number;
   @Input() ghRepo!: string;
+  @Input() owner!: string;
 
 
   constructor() { }

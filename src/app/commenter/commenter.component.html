@@ -1,2 +1,6 @@
 <app-editor></app-editor>
-<app-comments></app-comments>
+<app-comments
+  [ghRepo]="this.ghRepo"
+  [issueNumber]="this.issueNumber"
+  [owner]="this.owner"
+></app-comments>

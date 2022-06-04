@@ -9,6 +9,8 @@ import { CommentsComponent } from './comments/comments.component';
 import { GraphQLModule } from './graphql.module';
 import { CommentComponent } from './comment/comment.component';
 import { SafePipe } from './safe.pipe';
+import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -16,12 +18,14 @@ import { SafePipe } from './safe.pipe';
     EditorComponent,
     CommentsComponent,
     CommentComponent,
-    SafePipe
+    SafePipe,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    GraphQLModule
+    GraphQLModule,
+    FormsModule
   ],
   providers: [],
   // bootstrap:[CommenterComponent]
