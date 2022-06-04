@@ -9,7 +9,7 @@
     [(ngModel)]="comment"
     [hidden]="previewing"
   ></textarea>
-  <div [innerHtml]="markdownPreview() | safe" [hidden]="!previewing" class="p-4 min-h-[10rem] text-gray-500"></div>
+  <div [innerHtml]="markdownPreview() | safe" [hidden]="!previewing" class="p-4 min-h-[10rem] text-gray-500 github-markdown"></div>
   <div class="flex flex-row-reverse gap-4 bg-white px-4 py-2">
     <button
       class="rounded py-1 px-3 bg-blue-500 text-white"

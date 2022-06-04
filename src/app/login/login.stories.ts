@@ -2,6 +2,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { LoginService } from '../login.service';
 
 import { LoginComponent } from './login.component';
 
@@ -10,7 +11,8 @@ export default {
   component: LoginComponent,
   decorators: [
     moduleMetadata({
-      imports: [CommonModule, HttpClientModule]
+      imports: [CommonModule, HttpClientModule],
+      providers: [LoginService]
     })
   ]
 } as Meta;

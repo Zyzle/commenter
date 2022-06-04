@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 import { CommentComponent } from '../comment/comment.component';
 import { CommentsComponent } from '../comments/comments.component';
@@ -13,7 +14,7 @@ export default {
 	component: CommenterComponent,
 	decorators: [
 		moduleMetadata({
-			imports: [CommonModule, GraphQLModule],
+			imports: [CommonModule, GraphQLModule, FormsModule],
 			providers: [],
 			declarations: [
 				CommentComponent,
