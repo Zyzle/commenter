@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
+import { parseUrl, stringifyUrl } from 'query-string';
 
 import { generateUUID } from './utils';
 
@@ -12,23 +13,31 @@ const GH_TOKEN = 'ghToken';
 })
 export class LoginService {
 
-  private ghToken = new BehaviorSubject<string|null>(null);
+  private loggedIn = new BehaviorSubject<string|null>(null);
   private state: string | null = null;
 
   constructor() {
     this.state = localStorage.getItem(STATE_TOKEN);
-    this.ghToken.next(localStorage.getItem(GH_TOKEN)); 
+    this.loggedIn.next(localStorage.getItem(GH_TOKEN)); 
   }
 
   clearLogin() {
     localStorage.removeItem(GH_TOKEN);
-    this.ghToken.next(null);
+    this.loggedIn.next(null);
   }
 
   redirectToGh(clientId: string) {
     const currentHref = window.location.href;
     const state = generateUUID();
     localStorage.setItem(STATE_TOKEN, state);
-    window.location.href = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${currentHref}&state=${state}`;
+    const authUrl = stringifyUrl({
+      url: 'https://github.com/login/oauth/authorize',
+      query: {
+        client_id: clientId,
+        redirect_uri: currentHref,
+        state: state,
+      },
+    });
+    console.log('authUrl', authUrl);
   }
 }

@@ -5,6 +5,8 @@ import { CommentComponent } from '../comment/comment.component';
 import { CommentsComponent } from '../comments/comments.component';
 import { EditorComponent } from '../editor/editor.component';
 import { GraphQLModule } from '../graphql.module';
+import { LoginService } from '../login.service';
+import { LoginComponent } from '../login/login.component';
 import { SafePipe } from '../safe.pipe';
 
 import { CommenterComponent } from './commenter.component'
@@ -15,12 +17,13 @@ export default {
 	decorators: [
 		moduleMetadata({
 			imports: [CommonModule, GraphQLModule, FormsModule],
-			providers: [],
+			providers: [LoginService],
 			declarations: [
 				CommentComponent,
 				CommentsComponent,
 				SafePipe,
-				EditorComponent
+				EditorComponent,
+				LoginComponent
 			]
 		})
 	]
@@ -35,4 +38,6 @@ Commenter.args = {
 	issueNumber: 7,
 	ghRepo: 'zyzle.github.io',
 	owner: 'Zyzle',
+	clientId: '123456',
+	lynxApp: 'https://desolate-reaches-82509.herokuapp.com/'
 };

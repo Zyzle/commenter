@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { LoginService } from '../login.service';
 
@@ -9,6 +9,8 @@ import { LoginService } from '../login.service';
 })
 export class LoginComponent implements OnInit {
 
+  @Input() clientId!: string;
+
   constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
@@ -16,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   loginClick() {
     console.log('loginClick');
-    this.loginService.redirectToGh();
+    this.loginService.redirectToGh('123456');
   }
 
 }
