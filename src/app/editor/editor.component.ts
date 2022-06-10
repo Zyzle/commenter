@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
 
 import { marked } from 'marked';
 
@@ -9,6 +9,8 @@ import { marked } from 'marked';
 })
 export class EditorComponent implements OnInit {
 
+  @Output() postComment = new EventEmitter();
+
   public previewing = false;
   public comment = '';
 
@@ -16,6 +18,10 @@ export class EditorComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  post() {
+    this.postComment.emit(this.comment);
   }
 
   write() {

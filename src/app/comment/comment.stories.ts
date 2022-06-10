@@ -23,6 +23,6 @@ export const Comment = template.bind({});
 Comment.args = {
   avatar: 'https://via.placeholder.com/150',
   userName: 'User Name',
-  commentDate: `${Date.now()}`,
+  commentDate: '2022-05-24T02:00:03Z',
   content: `<p>a comment paragraph</p>`,
 };

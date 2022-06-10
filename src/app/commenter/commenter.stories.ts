@@ -1,10 +1,9 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 import { CommentComponent } from '../comment/comment.component';
-import { CommentsComponent } from '../comments/comments.component';
 import { EditorComponent } from '../editor/editor.component';
-import { GraphQLModule } from '../graphql.module';
 import { LoginService } from '../login.service';
 import { LoginComponent } from '../login/login.component';
 import { SafePipe } from '../safe.pipe';
@@ -16,11 +15,10 @@ export default {
 	component: CommenterComponent,
 	decorators: [
 		moduleMetadata({
-			imports: [CommonModule, GraphQLModule, FormsModule],
+			imports: [CommonModule, FormsModule, HttpClientModule],
 			providers: [LoginService],
 			declarations: [
 				CommentComponent,
-				CommentsComponent,
 				SafePipe,
 				EditorComponent,
 				LoginComponent

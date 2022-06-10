@@ -5,8 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { CommenterComponent } from './commenter/commenter.component';
 import { EditorComponent } from './editor/editor.component';
-import { CommentsComponent } from './comments/comments.component';
-import { GraphQLModule } from './graphql.module';
 import { CommentComponent } from './comment/comment.component';
 import { SafePipe } from './safe.pipe';
 import { FormsModule } from '@angular/forms';
@@ -16,7 +14,6 @@ import { LoginComponent } from './login/login.component';
   declarations: [
     CommenterComponent,
     EditorComponent,
-    CommentsComponent,
     CommentComponent,
     SafePipe,
     LoginComponent
@@ -24,7 +21,6 @@ import { LoginComponent } from './login/login.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    GraphQLModule,
     FormsModule
   ],
   providers: [],

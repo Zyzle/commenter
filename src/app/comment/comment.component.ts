@@ -1,4 +1,6 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { formatDistanceToNow, parseISO } from 'date-fns';
+import { marked } from 'marked';
 
 @Component({
   selector: 'app-comment',
@@ -7,13 +9,24 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class CommentComponent implements OnInit {
 
-  @Input() avatar?: string;
-  @Input() userName?: string;
-  @Input() commentDate?: Date;
-  @Input() content?: string;
+  @Input() avatar!: string;
+  @Input() userName!: string;
+  @Input() commentDate!: string;
+  @Input() content!: string;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
+  get formattedDate() {
+    return formatDistanceToNow(parseISO(this.commentDate), { addSuffix: true });
+  }
+
+  get parsedComment() {
+    if (this.content) {
+      return marked.parse(this.content);
+    }
+    return '';
+  }
 }

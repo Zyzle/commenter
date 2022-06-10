@@ -13,7 +13,7 @@ const GH_TOKEN = 'ghToken';
 })
 export class LoginService {
 
-  private loggedIn = new BehaviorSubject<string|null>(null);
+  public loggedIn = new BehaviorSubject<string|null>(null);
   private state: string | null = null;
 
   constructor() {
