@@ -1,6 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-
-import { LoginService } from '../login.service';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -9,16 +7,11 @@ import { LoginService } from '../login.service';
 })
 export class LoginComponent implements OnInit {
 
-  @Input() clientId!: string;
+  @Output() loginClicked = new EventEmitter();
 
-  constructor(private loginService: LoginService) { }
+  constructor() { }
 
   ngOnInit(): void {
-  }
-
-  loginClick() {
-    console.log('loginClick');
-    this.loginService.redirectToGh('123456');
   }
 
 }

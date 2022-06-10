@@ -38,6 +38,7 @@ export class LoginService {
         state: state,
       },
     });
-    console.log('authUrl', authUrl);
+
+    window.location.href = authUrl;
   }
 }

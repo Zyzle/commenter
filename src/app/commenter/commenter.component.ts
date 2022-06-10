@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-commenter',
@@ -14,8 +15,7 @@ export class CommenterComponent implements OnInit {
   @Input() ghRepo!: string;
   @Input() owner!: string;
 
-
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
   }

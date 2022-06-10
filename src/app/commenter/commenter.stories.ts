@@ -35,9 +35,9 @@ const template: Story = (args: any) => ({
 
 export const Commenter = template.bind({});
 Commenter.args = {
-	issueNumber: 7,
-	ghRepo: 'zyzle.github.io',
-	owner: 'Zyzle',
-	clientId: '123456',
-	lynxApp: 'https://desolate-reaches-82509.herokuapp.com/'
+  issueNumber: 7,
+  ghRepo: 'zyzle.github.io',
+  owner: 'Zyzle',
+  clientId: 'b60275ae52523320945b',
+  lynxApp: 'https://desolate-reaches-82509.herokuapp.com/',
 };
