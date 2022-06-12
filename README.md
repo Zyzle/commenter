@@ -1,29 +1,41 @@
 # Commenter
 
-Commenter is a webcomponents based comment system that allows you to use GitHub's issues as your comments backend. This project works in conjunction with [lynx.rs](https://github.com/Zyzle/lynx.rs) to authenticate with Github's oauth.
+Commenter is a [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) based comment system that allows you to use GitHub's issues as your comments backend. 
+
+This project works in conjunction with [lynx.rs](https://github.com/Zyzle/lynx.rs) to authenticate with Github's oauth, or rather it will once comment and reaction submission is added.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
 
-## Development server
+## Usage
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Commenter, when built consists of 3 js files; runtime, polyfills, and main. These three files simply need to be included as you would any other js files:
 
-## Code scaffolding
+```html
+<head>
+  <!-- ... --->
+  <script src="/runtime.2c67ee1ba12e0065.js" type="module"></script>
+  <script src="/polyfills.550f56bf1e9d0256.js" type="module"></script>
+  <script src="/main.d33242095a6e4424.js" type="module"></script>
+</head>
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Once this is done add the custom `zyzle-commenter` tag to your body where you want comments to appear and give it the required attributes:
 
-## Build
+```html
+<body>
+  <!-- ... -->
+  <zyzle-commenter 
+    gh-repo="zyzle.github.io"
+    owner="Zyzle"
+    issue-number="7">
+  </zyzle-commenter>
+</body>
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+The required attributes are as follows:
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+| Attribute    | Description |
+| ------------ | ----------- |
+| gh-repo      | The repository where the selected issue exists |
+| owner        | The repository owner, either organisation name or github user |
+| issue-number | The repository issue number to pull comments from |
