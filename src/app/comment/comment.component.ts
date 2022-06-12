@@ -20,6 +20,7 @@ export class CommentComponent implements OnInit {
   }
 
   get formattedDate() {
+    if (!this.commentDate) return;
     return formatDistanceToNow(parseISO(this.commentDate), { addSuffix: true });
   }
 

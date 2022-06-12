@@ -20,6 +20,9 @@ describe('CommentComponent', () => {
   });
 
   it('should create', () => {
+    component.commentDate = '2022-05-24T02:00:03Z';
+    component.content = 'some content';
+    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 });

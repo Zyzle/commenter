@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { SafePipe } from '../safe.pipe';
 import { EditorComponent } from './editor.component';
+
 
 describe('EditorComponent', () => {
   let component: EditorComponent;
@@ -8,7 +10,7 @@ describe('EditorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditorComponent ]
+      declarations: [ EditorComponent, SafePipe ]
     })
     .compileComponents();
   });
