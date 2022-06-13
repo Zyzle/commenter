@@ -6,6 +6,7 @@ import { CommentComponent } from '../comment/comment.component';
 import { EditorComponent } from '../editor/editor.component';
 import { LoginService } from '../login.service';
 import { LoginComponent } from '../login/login.component';
+import { ReactionComponent } from '../reaction/reaction.component';
 import { SafePipe } from '../safe.pipe';
 
 import { CommenterComponent } from './commenter.component'
@@ -21,7 +22,8 @@ export default {
 				CommentComponent,
 				SafePipe,
 				EditorComponent,
-				LoginComponent
+				LoginComponent,
+				ReactionComponent
 			]
 		})
 	]
