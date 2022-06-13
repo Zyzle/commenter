@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { formatDistanceToNow, parseISO } from 'date-fns';
 import { marked } from 'marked';
+import { GithubReaction, GithubReactions } from '../commenter.types';
 
 @Component({
   selector: 'app-comment',
@@ -13,6 +14,7 @@ export class CommentComponent implements OnInit {
   @Input() userName!: string;
   @Input() commentDate!: string;
   @Input() content!: string;
+  @Input() reactions!: GithubReactions;
 
   constructor() {}
 
@@ -29,5 +31,15 @@ export class CommentComponent implements OnInit {
       return marked.parse(this.content);
     }
     return '';
+  }
+
+  get commentReactions(): {count: number, reaction: string}[] {
+    if (!this.reactions) return [];
+    const reactions = Object.keys(GithubReaction).map(k => ({
+      reaction: k,
+      count: this.reactions[k as keyof GithubReactions] as number,
+    })).filter(x => x.count);
+
+    return reactions;
   }
 }

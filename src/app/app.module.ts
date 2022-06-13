@@ -9,6 +9,7 @@ import { CommentComponent } from './comment/comment.component';
 import { SafePipe } from './safe.pipe';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { ReactionComponent } from './reaction/reaction.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { LoginComponent } from './login/login.component';
     EditorComponent,
     CommentComponent,
     SafePipe,
-    LoginComponent
+    LoginComponent,
+    ReactionComponent
   ],
   imports: [
     BrowserModule,

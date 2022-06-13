@@ -23,10 +23,14 @@
         <p class="relative text-xl whitespace-nowrap truncate overflow-hidden text-slate-500 font-semibold">
           {{userName}}
         </p>
-        <!--a class="text-gray-500 text-xl" href="#"><i class="fa-solid fa-trash"></i></a-->
       </div>
       <p class="text-slate-400 text-sm">{{formattedDate}}</p>
     </div>
   </div>
   <div class="-mt-2 text-slate-500 github-markdown" [innerHtml]="parsedComment"></div>
+  <div class="flex flex-row gap-2">
+    <app-reaction *ngFor="let reaction of commentReactions"
+     [reaction]="reaction.reaction"
+     [count]="reaction.count"></app-reaction>
+  </div>
 </div>
