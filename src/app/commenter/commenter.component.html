@@ -1,8 +1,5 @@
-<!--app-login [clientId]="clientId" [hidden]="loginService.loggedIn | async"></app-login>
-<app-editor [hidden]="!(this.loginService.loggedIn | async)" (postComment)="postComment($event)"></app-editor-->
-<!--app-comments
-  [comments]="issueComments | async"
-></app-comments-->
+<app-login [clientId]="clientId" [hidden]="loginService.loggedIn | async" (loginClicked)="doLogin()"></app-login>
+<app-editor [hidden]="!(this.loginService.loggedIn | async)" (postComment)="postComment($event)"></app-editor>
 <div>
 <app-comment *ngFor="let comment of issueComments | async" 
   [avatar]="comment.user.avatar_url"

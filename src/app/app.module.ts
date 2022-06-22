@@ -31,7 +31,6 @@ import { ReactionComponent } from './reaction/reaction.component';
 export class AppModule implements DoBootstrap {
 
   constructor(private injector: Injector) {
-    // console.log('injector', injector);
     const webComponent = createCustomElement(CommenterComponent, {injector});
     customElements.define('zyzle-commenter', webComponent);
   }

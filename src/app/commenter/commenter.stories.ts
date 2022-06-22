@@ -39,5 +39,5 @@ Commenter.args = {
   ghRepo: 'zyzle.github.io',
   owner: 'Zyzle',
   clientId: 'b60275ae52523320945b',
-  lynxApp: 'https://desolate-reaches-82509.herokuapp.com/',
+  lynxApp: 'desolate-reaches-82509.herokuapp.com',
 };
