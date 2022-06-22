@@ -29,6 +29,8 @@ export class CommenterComponent implements OnInit {
   ngOnInit(): void {
     this.issueComments = this.githubService.getComments(this.owner, this.ghRepo, this.issueNumber);
 
+    this.loginService.startup(this.lynxApp);
+
     hljs.registerAliases('js', { languageName: 'javascript' });
 
     marked.setOptions({
@@ -36,6 +38,10 @@ export class CommenterComponent implements OnInit {
         return hljs.highlightAuto(code).value;
       },
     });
+  }
+
+  doLogin() {
+    this.loginService.redirectToGh(this.clientId);
   }
 
   reloadComments() {
