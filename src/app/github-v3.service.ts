@@ -14,7 +14,7 @@ export class GithubV3Service {
   constructor(private httpClient: HttpClient) { }
 
   getComments(owner: string, repo: string, issueNumber: number): Observable<GithubComment[]> {
-    const commentsUrl = new URL(`${owner}/${repo}/issues/${issueNumber}/comments`, URL_BASE)
+    const commentsUrl = new URL(`${owner}/${repo}/issues/${issueNumber}/comments`, URL_BASE);
     return this.httpClient.get<GithubComment[]>(commentsUrl.toString());
   }
 }
