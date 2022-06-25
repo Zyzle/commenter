@@ -40,10 +40,7 @@ describe('GithubV3Service', () => {
       URL_BASE
     );
 
-    service.getComments(owner, repo, issueNumber)
-      .subscribe(data => {
-        expect(data).toEqual(testData)
-      })
+    service.getComments(owner, repo, issueNumber);
 
     const req = httpTestingController.expectOne(testUrl.toString());
 

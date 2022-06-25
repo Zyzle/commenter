@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 import { GithubV3Service } from '../github-v3.service';
 import { CommenterComponent } from './commenter.component';
@@ -12,8 +12,10 @@ githubV3ServiceStub = {
   getComments: () => new Observable(),
 }
 
+const obs = new BehaviorSubject<string>('');
 loginServiceStub = {
   startup: () => {},
+  loggedIn: obs,
 }
 
 describe('CommenterComponent', () => {

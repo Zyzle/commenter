@@ -1,10 +1,8 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { marked } from 'marked';
 import hljs from 'highlight.js/lib/common';
-import { Observable, tap } from 'rxjs';
 import { GithubV3Service } from '../github-v3.service';
 import { LoginService } from '../login.service';
-import { GithubComment } from '../commenter.types';
 
 @Component({
   selector: 'app-commenter',
@@ -20,14 +18,14 @@ export class CommenterComponent implements OnInit {
   @Input() ghRepo!: string;
   @Input() owner!: string;
 
-  issueComments: Observable<GithubComment[]>;
+  login: string = '';
 
   constructor(public loginService: LoginService, public githubService: GithubV3Service) {
-    this.issueComments = new Observable();
+    this.loginService.loggedIn.subscribe(l => this.login = l);
   }
   
   ngOnInit(): void {
-    this.issueComments = this.githubService.getComments(this.owner, this.ghRepo, this.issueNumber);
+    this.githubService.getComments(this.owner, this.ghRepo, this.issueNumber);
 
     this.loginService.startup(this.lynxApp);
 
@@ -48,8 +46,8 @@ export class CommenterComponent implements OnInit {
     console.log('comments reload');
   }
 
-  postComment(comment: any) {
-    console.log('post comment', comment);
+  postComment(comment: string) {
+    this.githubService.postComment(this.owner, this.ghRepo, this.issueNumber, comment, this.login);
   }
 
 }

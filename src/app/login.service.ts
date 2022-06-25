@@ -81,6 +81,7 @@ export class LoginService {
         client_id: clientId,
         redirect_uri: currentHref,
         state: state,
+        scope: 'public_repo'
       },
     });
 

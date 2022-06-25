@@ -1,7 +1,7 @@
 <app-login [clientId]="clientId" [hidden]="loginService.loggedIn | async" (loginClicked)="doLogin()"></app-login>
 <app-editor [hidden]="!(this.loginService.loggedIn | async)" (postComment)="postComment($event)"></app-editor>
 <div>
-<app-comment *ngFor="let comment of issueComments | async" 
+<app-comment *ngFor="let comment of githubService.comments | async" 
   [avatar]="comment.user.avatar_url"
   [commentDate]="comment.created_at"
   [content]="comment.body"

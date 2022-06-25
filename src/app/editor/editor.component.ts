@@ -22,6 +22,7 @@ export class EditorComponent implements OnInit {
 
   post() {
     this.postComment.emit(this.comment);
+    this.comment = '';
   }
 
   write() {
