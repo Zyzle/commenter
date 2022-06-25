@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, of } from 'rxjs';
 
 import { GithubComment } from './commenter.types';
 
@@ -11,10 +11,47 @@ const URL_BASE = 'https://api.github.com/repos/'
 })
 export class GithubV3Service {
 
+  private _comments: BehaviorSubject<GithubComment[]> = new BehaviorSubject<GithubComment[]>([]);
+  private _test: BehaviorSubject<Object[]> = new BehaviorSubject<Object[]>([]);
+
   constructor(private httpClient: HttpClient) { }
 
-  getComments(owner: string, repo: string, issueNumber: number): Observable<GithubComment[]> {
+  get comments(): Observable<GithubComment[]> {
+    return this._comments.asObservable();
+  }
+
+  get test(): Observable<Object[]> {
+    return this._test.asObservable();
+  }
+
+  getComments(owner: string, repo: string, issueNumber: number) {
     const commentsUrl = new URL(`${owner}/${repo}/issues/${issueNumber}/comments`, URL_BASE);
-    return this.httpClient.get<GithubComment[]>(commentsUrl.toString());
+    this.httpClient.get<GithubComment[]>(commentsUrl.toString())
+    .pipe(
+      catchError(e => [])
+    )
+    .subscribe(comments => {
+      this._comments.next(comments)
+    });
+  }
+
+  postComment(owner: string, repo: string, issueNumber: number, commentBody: string, token: string) {
+    const commentsUrl = new URL(`${owner}/${repo}/issues/${issueNumber}/comments`, URL_BASE);
+    this.httpClient.post<GithubComment>(
+      commentsUrl.toString(),
+      {
+        body: commentBody,
+      },
+      {
+        headers: {
+          'accept': 'application/vnd.github.v3+json',
+          'authorization': `token ${token}`
+        },
+      }
+    ).pipe(
+      catchError((e) => {
+        return of({} as GithubComment);
+      })
+    ).subscribe(_ => this.getComments(owner, repo, issueNumber));
   }
 }
