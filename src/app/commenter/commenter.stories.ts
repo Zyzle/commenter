@@ -23,7 +23,7 @@ export default {
 				SafePipe,
 				EditorComponent,
 				LoginComponent,
-				ReactionComponent
+				ReactionComponent,
 			]
 		})
 	]

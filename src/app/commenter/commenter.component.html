@@ -6,6 +6,8 @@
   [commentDate]="comment.created_at"
   [content]="comment.body"
   [userName]="comment.user.login"
-  [reactions]="comment.reactions">
+  [reactions]="comment.reactions"
+  [id]="comment.id"
+  (addReaction)="reactToComment($event)">
 </app-comment>
 </div>
