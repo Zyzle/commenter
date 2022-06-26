@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { GithubReaction, GithubReactions } from '../commenter.types';
 
 @Component({
@@ -10,6 +10,7 @@ export class ReactionComponent implements OnInit {
 
   @Input() reaction!: string;
   @Input() count!: number;
+  @Output() addReaction = new EventEmitter<string>();
 
   constructor() { }
 

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { formatDistanceToNow, parseISO } from 'date-fns';
 import { marked } from 'marked';
 import { GithubReaction, GithubReactions } from '../commenter.types';
@@ -13,8 +13,10 @@ export class CommentComponent implements OnInit {
   @Input() avatar!: string;
   @Input() userName!: string;
   @Input() commentDate!: string;
+  @Input() id!: number;
   @Input() content!: string;
   @Input() reactions!: GithubReactions;
+  @Output() addReaction = new EventEmitter<{reaction: string, comment: number}>();
 
   constructor() {}
 

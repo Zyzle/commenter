@@ -18,8 +18,7 @@ export class CommenterComponent implements OnInit {
   @Input() ghRepo!: string;
   @Input() owner!: string;
 
-  constructor(public loginService: LoginService, public githubService: GithubV3Service) {
-  }
+  constructor(public loginService: LoginService, public githubService: GithubV3Service) { }
   
   ngOnInit(): void {
     this.githubService.getComments(this.owner, this.ghRepo, this.issueNumber);
@@ -39,12 +38,12 @@ export class CommenterComponent implements OnInit {
     this.loginService.redirectToGh(this.clientId);
   }
 
-  reloadComments() {
-    console.log('comments reload');
-  }
-
   postComment(comment: string) {
     this.githubService.postComment(this.owner, this.ghRepo, this.issueNumber, comment, this.loginService.loggedIn.getValue());
   }
 
+  reactToComment(event: {reaction: string, comment: number}) {
+    this.githubService.addReaction(this.owner, this.ghRepo, this.issueNumber, this.loginService.loggedIn.getValue(), event.comment, event.reaction);
+  }
+  
 }
