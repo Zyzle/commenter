@@ -18,10 +18,7 @@ export class CommenterComponent implements OnInit {
   @Input() ghRepo!: string;
   @Input() owner!: string;
 
-  login: string = '';
-
   constructor(public loginService: LoginService, public githubService: GithubV3Service) {
-    this.loginService.loggedIn.subscribe(l => this.login = l);
   }
   
   ngOnInit(): void {
@@ -47,7 +44,7 @@ export class CommenterComponent implements OnInit {
   }
 
   postComment(comment: string) {
-    this.githubService.postComment(this.owner, this.ghRepo, this.issueNumber, comment, this.login);
+    this.githubService.postComment(this.owner, this.ghRepo, this.issueNumber, comment, this.loginService.loggedIn.getValue());
   }
 
 }
