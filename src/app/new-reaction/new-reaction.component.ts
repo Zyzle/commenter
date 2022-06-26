@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+
+import { GithubReaction } from '../commenter.types';
 
 @Component({
   selector: 'app-new-reaction',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewReactionComponent implements OnInit {
 
+  @Output() addReaction = new EventEmitter<string>();
+
+  reactions = Object.keys(GithubReaction);
+  entered = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  enter() {
+    this.entered = true;
+  }
+
+  leave() {
+    this.entered = false;
   }
 
 }
