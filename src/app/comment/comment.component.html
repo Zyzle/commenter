@@ -29,7 +29,7 @@
   </div>
   <div class="-mt-2 text-slate-500 github-markdown" [innerHtml]="parsedComment"></div>
   <div class="flex flex-row gap-2">
-    <app-reaction-dropdown></app-reaction-dropdown>
+    <app-new-reaction (addReaction)="addReaction.emit({reaction: $event, comment: id})"></app-new-reaction>
     <app-reaction *ngFor="let reaction of commentReactions"
      [reaction]="reaction.reaction"
      [count]="reaction.count"

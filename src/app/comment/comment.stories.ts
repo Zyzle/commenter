@@ -5,6 +5,7 @@ import { SafePipe } from "../safe.pipe";
 import { ReactionComponent } from '../reaction/reaction.component';
 import { CommentComponent } from "./comment.component";
 import { GithubReactions } from "../commenter.types";
+import { NewReactionComponent } from "../new-reaction/new-reaction.component";
 
 export default {
   title: 'Comment',
@@ -12,7 +13,7 @@ export default {
   decorators: [
     moduleMetadata({
       imports: [CommonModule],
-      declarations: [ReactionComponent, SafePipe]
+      declarations: [ReactionComponent, SafePipe, NewReactionComponent]
     })
   ]
 } as Meta;
@@ -23,6 +24,7 @@ const template: Story = (args: any) => ({
 
 export const Comment = template.bind({});
 Comment.args = {
+  id: 12334,
   avatar: 'https://via.placeholder.com/150',
   userName: 'User Name',
   commentDate: '2022-05-24T02:00:03Z',

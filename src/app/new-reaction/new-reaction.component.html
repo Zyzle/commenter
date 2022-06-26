@@ -1,1 +1,11 @@
-<p>new-reaction works!</p>
+<span class="outer" (mouseenter)="enter()" (mouseleave)="leave()">
+  <div class="inner flex flex-row gap-2" [hidden]="!entered">
+    <app-reaction *ngFor="let reaction of reactions"
+      [reaction]="reaction"
+      (addReaction)="addReaction.emit($event)"
+    ></app-reaction>
+  </div>
+  <button class="rounded-full border px-2 bg-white hover:bg-slate-200 flex flex-row justify-center items-center gap-1">
+    <span class="text-slate-500">+</span>
+  </button>
+</span>
