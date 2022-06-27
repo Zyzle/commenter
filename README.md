@@ -13,9 +13,9 @@ Commenter, when built consists of 3 js files; runtime, polyfills, and main. Thes
 ```html
 <head>
   <!-- ... --->
-  <script src="/runtime.2c67ee1ba12e0065.js" type="module"></script>
-  <script src="/polyfills.550f56bf1e9d0256.js" type="module"></script>
-  <script src="/main.d33242095a6e4424.js" type="module"></script>
+  <script src="/runtime.xxxxxxxxxxxxxxxx.js" type="module"></script>
+  <script src="/polyfills.xxxxxxxxxxxxxxxx.js" type="module"></script>
+  <script src="/main.xxxxxxxxxxxxxxxx.js" type="module"></script>
 </head>
 ```
 
@@ -27,7 +27,9 @@ Once this is done add the custom `zyzle-commenter` tag to your body where you wa
   <zyzle-commenter 
     gh-repo="zyzle.github.io"
     owner="Zyzle"
-    issue-number="7">
+    issue-number="7"
+    client-id="1234abcd"
+    lynx-app="your.lynxApp-domain.com">
   </zyzle-commenter>
 </body>
 ```
@@ -39,3 +41,7 @@ The required attributes are as follows:
 | gh-repo      | The repository where the selected issue exists |
 | owner        | The repository owner, either organisation name or github user |
 | issue-number | The repository issue number to pull comments from |
+| client-id    | The Client ID of your Github OAuth app |
+| lynx-app     | The domain of your [Lynx.rs](https://github.com/Zyzle/lynx.rs) application (no need for `https://` prefix) |
+
+You can find instructions for how to setup a Github OAuth app in [their documentation](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app)
