@@ -16,6 +16,7 @@ export class CommentComponent implements OnInit {
   @Input() id!: number;
   @Input() content!: string;
   @Input() reactions!: GithubReactions;
+  @Input() html_url!: string;
   @Output() addReaction = new EventEmitter<{reaction: string, comment: number}>();
 
   constructor() {}
