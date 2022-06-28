@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
-import { GithubReaction } from '../commenter.types';
+import { Chevron, GithubReaction } from '../commenter.icons';
 
 @Component({
   selector: 'app-new-reaction',
@@ -13,6 +13,7 @@ export class NewReactionComponent implements OnInit {
 
   reactions = Object.keys(GithubReaction);
   entered = false;
+  chevronIcon = Chevron;
 
   constructor() { }
 

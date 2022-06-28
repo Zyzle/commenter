@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Meta, Story, moduleMetadata } from '@storybook/angular';
-import { GithubReaction } from '../commenter.types';
 import { SafePipe } from '../safe.pipe';
 
 import { ReactionComponent } from './reaction.component';
