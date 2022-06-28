@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/Zyzle/commenter/compare/v1.0.0...v1.1.0) (2022-06-28)
+
+
+### Features
+
+* **icons:** add icons in multiple places ([a3298f0](https://github.com/Zyzle/commenter/commit/a3298f0b832bd437433d6219f96a75432b38f086))
+
 ## [1.0.0](https://github.com/Zyzle/commenter/compare/v0.1.1...v1.0.0) (2022-06-27)
 
 
