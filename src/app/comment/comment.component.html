@@ -35,6 +35,6 @@
      [count]="reaction.count"
      (addReaction)="addReaction.emit({reaction: $event, comment: id})"></app-reaction>
     <div class="flex-1"></div>
-    <a [href]="html_url" class="text-slate-400 underline text-sm">Github comment</a>
+    <a [href]="html_url" class="text-slate-500 underline text-sm h-6 w-6" [innerHTML]="linkIcon | safe" title="View on GitHub"></a>
   </div>
 </div>

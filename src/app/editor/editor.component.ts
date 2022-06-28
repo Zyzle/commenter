@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
 
 import { marked } from 'marked';
+import { Post, Preview, Write } from '../commenter.icons';
 
 @Component({
   selector: 'app-editor',
@@ -13,6 +14,10 @@ export class EditorComponent implements OnInit {
 
   public previewing = false;
   public comment = '';
+
+  writeIcon = Write;
+  previewIcon = Preview;
+  postIcon = Post;
 
   constructor() { 
   }

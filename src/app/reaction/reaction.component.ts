@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { GithubReaction, GithubReactions } from '../commenter.types';
+import { GithubReaction } from '../commenter.icons';
 
 @Component({
   selector: 'app-reaction',

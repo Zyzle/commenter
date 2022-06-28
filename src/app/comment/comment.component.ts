@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { formatDistanceToNow, parseISO } from 'date-fns';
 import { marked } from 'marked';
-import { GithubReaction, GithubReactions } from '../commenter.types';
+import { GithubReactions } from '../commenter.types';
+import { Chain, GithubReaction } from '../commenter.icons';
 
 @Component({
   selector: 'app-comment',
@@ -18,6 +19,8 @@ export class CommentComponent implements OnInit {
   @Input() reactions!: GithubReactions;
   @Input() html_url!: string;
   @Output() addReaction = new EventEmitter<{reaction: string, comment: number}>();
+
+  linkIcon = Chain;
 
   constructor() {}
 
